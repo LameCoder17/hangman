@@ -90,6 +90,12 @@ class _GameStage extends State<GameStage> {
                                         onPressed: () {
                                           _gameStageBloc.createNewGame();
                                         },
+                                      ),
+                                      RaisedButton(
+                                        child: Text('Exit'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
                                       )
                                     ]);
                               }
@@ -127,6 +133,12 @@ class _GameStage extends State<GameStage> {
                                         onPressed: () {
                                           _gameStageBloc.createNewGame();
                                         },
+                                      ),
+                                      RaisedButton(
+                                        child: Text('Exit'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
                                       )
                                     ]);
                               }
@@ -158,13 +170,13 @@ class _GameStage extends State<GameStage> {
                                       ),
                                     ],
                                   ),
-                                  CharacterPicker(
-                                    gameStageBloc: _gameStageBloc,
-                                  ),
                                   Puzzle(
                                     guessWord: guessWord,
                                     gameStageBloc: _gameStageBloc,
-                                  )
+                                  ),
+                                  CharacterPicker(
+                                    gameStageBloc: _gameStageBloc,
+                                  ),
                                 ],
                               );
                             });

@@ -2,9 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hangman/screens/about.dart';
 import 'package:hangman/screens/exit.dart';
+import 'package:hangman/screens/word_list.dart';
 import 'package:hangman/start/game_stage.dart';
+import 'package:hangman/start/words.dart';
+import 'package:hangman/utils/database_helper.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await DB.init();
+  GuessWordHelper().generateWords();
+
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: 'Hangman - The Game',
@@ -17,7 +24,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
-        children: <Widget>[
+      children: <Widget>[
         Padding(
           padding: EdgeInsets.only(top: 270.00),
           child: Center(
@@ -36,8 +43,7 @@ class MainPage extends StatelessWidget {
                 textScaleFactor: 2,
               ),
               onPressed: () {
-                Navigator.push
-                  (
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => GameStage()),
                 );
@@ -56,12 +62,16 @@ class MainPage extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(top: 20.00),
           child: FlatButton(
-            child: Text(
-              'Words',
-              textScaleFactor: 2,
-            ),
-            onPressed: null,
-          ),
+              child: Text(
+                'Words',
+                textScaleFactor: 2,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => WordList()),
+                );
+              }),
         ),
         Padding(
           padding: EdgeInsets.all(20.00),

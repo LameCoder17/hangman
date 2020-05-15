@@ -36,7 +36,6 @@ class _CharacterPickerState extends State<CharacterPicker> {
                     var letter = alphabetArr[i];
                     return _buildSingleCharacter(guessedLettersSnap.data, letter);
                   })));
-
         });
   }
 
@@ -61,7 +60,7 @@ class _CharacterPickerState extends State<CharacterPicker> {
                 : Colors.white,
             borderRadius: BorderRadius.circular(4.0),
         border: Border.all(color: Colors.black)),
-        child: Center(child: Text(letter)),
+        child: Center(child: Text(letter, style: TextStyle(fontSize: 18),)),
       ),
     );
   }

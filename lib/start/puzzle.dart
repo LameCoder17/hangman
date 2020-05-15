@@ -32,30 +32,30 @@ class _PuzzleState extends State<Puzzle> {
                     var letter = widget.guessWord[i];
                     var letterGuessedCorrectly = guessedLettersSnap.data.contains(letter);
 
-                    return _buildSingleCharacterBox(letter, letterGuessedCorrectly);
+                      return _buildSingleCharacterBox(
+                          letter, letterGuessedCorrectly);
                   })));
         });
   }
 
   Widget _buildSingleCharacterBox(String letter, bool letterGuessedCorrectly) {
     return Container(
-      height: 36.0,
-      width: 36.0,
+      height: 42.0,
+      width: 42.0,
       decoration: BoxDecoration(
-          color: letterGuessedCorrectly ? Colors.red : Colors.black,
-          borderRadius: BorderRadius.circular(4.0)),
+          color: letterGuessedCorrectly ? Colors.black : Colors.white,
+          borderRadius: BorderRadius.circular(4.0),
+        border: Border.all(color: Colors.black, width: 3)
+      ),
       child: letterGuessedCorrectly
           ? Center(
         child: Text(
           letter,
-          style: _guessedCharacterStyle,
+          style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold,),
           textAlign: TextAlign.center,
         ),
       )
           : null,
     );
   }
-
-  TextStyle _guessedCharacterStyle =
-  TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
 }
