@@ -10,7 +10,7 @@ class HangingFrameAndNoose extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint();
-    paint.color = Colors.black;
+    paint.color = Colors.white;
     paint.style = PaintingStyle.fill;
 
     _drawFrame(canvas, size, paint);
@@ -49,14 +49,14 @@ class HangingFrameAndNoose extends CustomPainter {
   }
 
   _drawHead(Canvas canvas, Size size, Paint paint) {
-    paint.color = Colors.black;
+    paint.color = Colors.white;
     paint.style = PaintingStyle.fill;
     var nooseEnd = Offset(size.width/2, size.height/5);
     canvas.drawCircle(nooseEnd, _headHeight, paint);
   }
 
   _drawBody(Canvas canvas, Size size, Paint paint) {
-    paint.color = Colors.black;
+    paint.color = Colors.white;
     var bodyStart = Offset(size.width/2, size.height/5 + _headHeight);
     var bodyEnd = Offset(size.width/2, bodyStart.dy + (3 * _headHeight));
     paint.strokeWidth = 8.0;
@@ -65,7 +65,7 @@ class HangingFrameAndNoose extends CustomPainter {
   }
 
   _drawLeg(Canvas canvas, Size size, Paint paint, Limb limb) {
-    paint.color = Colors.black;
+    paint.color = Colors.white;
     var bodyStart = Offset(size.width/2, size.height/5 + _headHeight - 3);
 
     var dxStart = limb == Limb.left ? size.width/2 - 16 : size.width/2 + 16;

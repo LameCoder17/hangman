@@ -5,11 +5,19 @@ import 'package:hangman/utils/database_helper.dart';
 class GuessWordHelper {
 
   static List<String> _allowedWords = [];
+  static String previousWord = '';
 
   String generateRandomWord() {
     var randomGenerator = Random();
     var randomIndex = randomGenerator.nextInt(_allowedWords.length);
-    return _allowedWords[randomIndex].toUpperCase();
+    if(previousWord == _allowedWords[randomIndex])
+      {
+        generateRandomWord();
+      }
+    else{
+      previousWord =  _allowedWords[randomIndex];
+      return _allowedWords[randomIndex].toUpperCase();
+    }
   }
 
 Future<void> generateWords() async {
